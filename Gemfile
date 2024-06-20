@@ -17,6 +17,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'devise'
 
 gem 'bootstrap', '~> 4.0.0'
+gem 'unsplash'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

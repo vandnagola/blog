@@ -1,35 +1,31 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-8">
-      <div class="card mb-3" style="max-width: 800px;">
-        <div class="row no-gutters">
-          <div class="col-md-4">
-            <!-- Placeholder image, replace src attribute with your actual image URL or use Rails helpers -->
-            <img src="..." class="card-img" alt="...">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <p id="notice" class="card-text"><%= notice %></p>
-
-              <p class="card-text">
-                <strong>Title:</strong>
-                <%= @post.title %>
-              </p>
-
-              <p class="card-text">
-                <strong>Content:</strong>
-                <%= @post.content %>
-              </p>
-
-              <% if user_signed_in? && (current_user == @post.user) %>
-                <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-primary mr-2" %>
-              <% end %>
-
-              <%= link_to 'Back', posts_path, class: "btn btn-secondary" %>
-            </div>
+      <div class="card" style="width:50rem;">
+        <% image_url = @post.fetch_random_image %>
+        <% if image_url.present? %>
+          <img class="card-img-top" src="<%= image_url %>" alt="Card image cap">
+        <% end %>
+        <div class="card-body text-left">
+          <h5 class="card-title">
+            <strong>Title:</strong>
+            <%= @post.title %>
+          </h5>
+          <p class="card-text">
+            <strong>Content:</strong>
+            <%= @post.content %>
+          </p>
+        </div>
+        <div class="card-footer">
+          <small>Created <%= time_ago_in_words(@post.created_at) %> ago, 
+              edited <%= time_ago_in_words(@post.updated_at) %> ago</small>
+          <div class="d-flex justify-content mt-2">
+            <% if user_signed_in? && (current_user == @post.user) %>
+              <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-primary mr-2" %>
+            <% end %>
+            <%= link_to 'Back', posts_path, class: "btn btn-secondary" %>
           </div>
         </div>
-      </div>
     </div>
   </div>
 </div>
