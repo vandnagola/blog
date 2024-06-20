@@ -1,3 +1,43 @@
 # DESCRIPTION
 
-The sample application is used for the understanding of Rails 4.2 vulnerabilities.
+This mini blog application where users can write, edit, and delete blog posts. Implement a feature fetching and displaying random images related to the blog post's title using a third-party API.
+
+#Prerequisites
+
+ruby 2.5.1
+rails 4.2.11
+bundler 1.17.3
+Postgresql 14.12 or higher
+
+
+# Setup and installation instructions.
+
+1.Check out the repository
+  
+  git clone git@github.com:vandnagola/blog.git
+  bundle install
+
+2. Modify database.yml file
+
+  Modify the database configuration as required and with your credential.
+
+3.Create and setup the database
+
+  Run the following commands to create and setup the database.
+  bundle exec rake db:create
+  bundle exec rake db:setup
+
+4.Start the Rails server
+  
+  You can start the rails server using the command given below.
+  bundle exec rails s
+
+
+# API key configuration instructions.
+
+1. Created a account on unsplash site and genrate API_KEY and SECREATE_KEY
+2. Add gem 'unsplash'
+3. bundle install
+4. Before making requests, you must create a file unsplash.rb in initializer folder and configure the  with your application 
+   ID and secret ID.
+5. Write a code for crate a random image related to post' title.
