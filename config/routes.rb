@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users
+  root 'pages#home'
   resources :posts
+
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations',
+    passwords: 'users/passwords'
+    # Add other controllers as needed
+  }
   
-  root 'posts#index'
 end

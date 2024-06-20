@@ -1,15 +1,35 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card mb-3" style="max-width: 800px;">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <!-- Placeholder image, replace src attribute with your actual image URL or use Rails helpers -->
+            <img src="..." class="card-img" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <p id="notice" class="card-text"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+              <p class="card-text">
+                <strong>Title:</strong>
+                <%= @post.title %>
+              </p>
 
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
-<% if user_signed_in? && (current_user == @post.user) %>
-  <%= link_to 'Edit', edit_post_path(@post) %> 
-<% end %>
-<%= link_to 'Back', posts_path %>
+              <p class="card-text">
+                <strong>Content:</strong>
+                <%= @post.content %>
+              </p>
+
+              <% if user_signed_in? && (current_user == @post.user) %>
+                <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-primary mr-2" %>
+              <% end %>
+
+              <%= link_to 'Back', posts_path, class: "btn btn-secondary" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
