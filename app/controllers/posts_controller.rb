@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @image_url = @post.fetch_random_image
+
   end
 
   def new

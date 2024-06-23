@@ -3,12 +3,13 @@ class Post < ActiveRecord::Base
 
   def fetch_random_image
     search_query = self.title
+    return nil if search_query.blank?
     photos = Unsplash::Photo.search(search_query)
     if photos.any?
       random_photo = photos.sample
       random_photo.urls.full
     else
-      "Default_Image_URL" # Fallback image URL if no photos are found
+      "Default_Image_URL"
     end
   end
 end
