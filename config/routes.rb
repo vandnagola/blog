@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   root 'pages#home'
   resources :posts
@@ -8,5 +10,4 @@ Rails.application.routes.draw do
     passwords: 'users/passwords'
     # Add other controllers as needed
   }
-  
 end
